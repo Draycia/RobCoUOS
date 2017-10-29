@@ -249,13 +249,11 @@ run:
 ; ------------------------------------------------------------------
 
 help:
-	;SET
-	;RUN
-	;LOGON
-	;START
-	;HELP
-	;CLS / CLEAR
+	mov si, .help_msg
+	call os_newline_string
 	jmp start_cmd
+	
+	.help_msg			db 'Available commands are:', 0x0a, 'SET', 0x0a, 'RUN', 0x0a, 'LOGON', 0x0a, 'HELP', 0x0a, 'CLS/CLEAR', 0x0a, 0
 
 ; ------------------------------------------------------------------
 
