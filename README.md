@@ -26,6 +26,8 @@ Upon boot you have a few options.
  - Logon with username/password
  - Go through the hacking sequence and minigame
  
+It is advised that you type everything in caps.
+ 
 Default username is `admin` and password is `BURIED`.
 
 To start the hacking minigame you need to go through the necessary command sequence.
