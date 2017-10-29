@@ -109,7 +109,64 @@ ram:
 	
 ; ------------------------------------------------------------------
 
-logon:
+logon: ; this works
+	mov word si, [param_list]
+	mov di, .username	; Was "admin" specified?
+	call os_string_compare
+	jc .admin_yes ; if so, goto .admin_yes
+	mov si, user_error ; if not, error and return.
+	call os_print_string
+	call os_print_newline
+	jmp start_cmd
+	
+.admin_yes:
+	mov di, input			; Clear input buffer each time
+	mov al, 0
+	mov cx, 256
+	rep stosb
+
+	mov di, command			; And single command buffer
+	mov cx, 32
+	rep stosb
+
+	mov si, .pass_request
+	call os_print_string
+	call os_print_newline
+	mov si, prompt			; Main loop; prompt for input (PASSWORD>)
+	call os_print_string
+
+	mov ax, input			; Get command string from user
+	call os_input_string
+
+	call os_print_newline
+
+	mov ax, input			; Remove trailing spaces
+	call os_string_chomp
+
+	mov si, input			; If just enter pressed, prompt again
+	cmp byte [si], 0
+	je start_cmd
+
+	mov si, input			; Separate out the individual command
+	mov al, ' '
+	call os_string_tokenize
+
+	mov word [param_list], di	; Store location of full parameters
+
+	mov si, input			; Store copy of command for later modifications
+	mov di, command
+	call os_string_copy
+	
+	mov di, .password
+	call os_string_compare
+	jc .pass_success
+	mov si, .pass_error
+	call os_print_string
+	call os_print_newline
+	jmp start_cmd
+	
+.pass_success:
+	ret
 
 	.pass_error	db 'PASSWORD INCORRECT', 0
 	.password	db 'BURIED', 0
