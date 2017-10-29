@@ -120,9 +120,12 @@ logon: ; this works
 	jmp start_cmd
 	
 .admin_yes:
+	mov si, .pass_request
+	call os_print_string
+	call os_print_newline
 	call os_read_string
 	mov [input], si
-	mov [param_list], di
+
 	
 	mov di, .password
 	call os_string_compare
