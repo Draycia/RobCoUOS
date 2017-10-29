@@ -28,10 +28,10 @@ imdisk -a -f disk_images\mikeos.flp -s 1440K -m B:
 echo Copying kernel and applications to disk image...
 copy source\kernel.bin b:\
 copy programs\*.bin b:\
-copy programs\sample.pcx b:\
-copy programs\*.bas b:\
+copy files\*.txt b:\
 
 echo Dismounting disk image...
 imdisk -D -m B:
 
 echo Done!
+pause>nul
