@@ -145,9 +145,18 @@ os_get_via_serial	equ	0063h	; Returns AL = byte received
 os_run_basic		equ	00C6h	; AX = code location in RAM, BX = size,
 					; SI = parameter string (or 0 if none)
 os_get_api_version	equ	0057h	; Returns API version in AL
-os_pause		equ	0024h	; AX = 10ths of second to wait
+os_pause			equ	0024h	; AX = 10ths of second to wait
 os_fatal_error		equ	0027h	; AX = error string location
 
+
+
+; Misc things added by Josh
+
+os_newline_string	equ 00D2h
+os_read_string		equ 00D5h
+os_conv_mem			equ 00D8h
+os_upper_mem		equ 00DBh
+os_hack_input		equ 00DEh
 
 ; ------------------------------------------------------------------
 
