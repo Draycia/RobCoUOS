@@ -17,6 +17,26 @@ RobCoUOS is built upon [MikeOS].
  - Ability to read and write files
  - Username and password change
  - Varying degrees of difficulty for hacking
+ - Permanent lockout (with bypass)
+ 
+### Guide on use
+
+Upon boot you have a few options. 
+ - Run various programs like `mem`
+ - Logon with username/password
+ - Go through the hacking sequence and minigame
+ 
+Default username is `admin` and password is `BURIED`.
+
+To start the hacking minigame you need to go through the necessary command sequence.
+```
+>SET TERMINAL/INQUIRE
+>SET FILE/PROTECTION=OWNER:RWED ACCOUNTS.F
+>SET HALT/RESTART MAINT
+>RUN DEBUG/ACCOUNTS.F
+```
+Once in the minigame, typing anything but the words in the data chunk triggers undefined behaviour.
+You have 4 tries to get the right password or you're locked out until reboot.
  
 ### Compilation
 
