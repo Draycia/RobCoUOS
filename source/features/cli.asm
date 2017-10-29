@@ -68,11 +68,11 @@ exit:
 	help_text		db 'COMMANDS: CLS, DIR, LOGON', 13, 10, 0
 	nofilename_msg	db 'No filename or not enough filenames', 13, 10, 0
 
-	robco_one		db 'ROBCO INDUSTRIES UNIFIED OPERATING SYSTEM', 0
-	robco_two		db '  COPYRIGHT 2075-2077 ROBCO INDUSTRIES   ', 0
-	server_name		db '               -Server 0-                ', 0
+	robco_one		db '                   ROBCO INDUSTRIES UNIFIED OPERATING SYSTEM', 0
+	robco_two		db '                     COPYRIGHT 2075-2077  ROBCO INDUSTRIES', 0
+	server_name		db '                                   -Server 0-', 0
 	welcome_admin	db 'Welcome, admin.', 0
-	box_line		db '_______________', 0
+	box_line		db 0xC4,0xC4,0xC4,0xC4,0xC4,0xC4,0xC4,0xC4,0xC4,0xC4,0xC4,0xC4,0xC4,0xC4,0xC4, 0
 
 	version_msg		db 'RobcoOS ', MIKEOS_VER, 13, 10, 0
 
