@@ -87,6 +87,9 @@ os_read_string:
 	.param_list		dw 0
 	
 ; ------------------------------------------------------------------
+; os_conv_mem -- Returns conventional memory found (0KB to 640KB)
+; IN: Nothing
+; OUT: AX amount of memory found in KB
 	
 os_conv_mem:
 	clc
@@ -105,6 +108,9 @@ os_conv_mem:
 	ret
 
 ; ------------------------------------------------------------------
+; os_upper_mem -- Returns conventional memory found (0KB to 640KB)
+; IN: Nothing
+; OUT: CBA to remember
 
 os_upper_mem:
 	xor cx, cx
@@ -126,10 +132,6 @@ os_upper_mem:
 	ret
 	
 	.ram_error	db 'ERROR GETTING MEMORY SIZE', 0
-
-; ------------------------------------------------------------------
-
-;os_read_screen:
 
 ; ------------------------------------------------------------------
 ; os_input_string -- Take string from keyboard entry
