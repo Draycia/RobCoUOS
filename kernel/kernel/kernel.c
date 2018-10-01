@@ -2,6 +2,7 @@
 
 #include <kernel/tty.h>
 #include <kernel/gdt.h>
+#include <kernel/idt.h>
 
 // WELCOME TO ROBCO INDUSTRIES (TM) TERMLINK
 // 
@@ -32,4 +33,5 @@
 void kernel_main(void) {
 	terminal_initialize();
 	gdt_initialize();
+	idt_initialize();
 }
